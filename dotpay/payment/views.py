@@ -1,5 +1,5 @@
 import logging
-import urlparse
+from urllib.parse import urlparse
 from django.views.decorators.csrf import csrf_exempt
 from dotpay.payment.models import DotResponse
 from django.http import HttpResponse
