@@ -5,7 +5,7 @@ from dotpay.settings import DOTID
 from django.forms.fields import HiddenInput
 from django.core.urlresolvers import reverse
 from django.contrib.sites.models import Site
-from urlparse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse
 
 
 class DotRequestForm(ModelForm):
@@ -20,6 +20,7 @@ class DotRequestForm(ModelForm):
     
         class Meta:
             model = DotRequest
+            fields = "__all__"
             widgets = {
             'kwota' : HiddenInput,
             'opis' : HiddenInput,
