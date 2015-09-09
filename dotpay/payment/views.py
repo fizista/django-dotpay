@@ -27,7 +27,7 @@ def receiver(request):
                 dotresponse = DotResponse.objects.get_or_create(control=vars.pop('control'),
                                                                 t_id=vars.pop('t_id'),
                                                                 defaults=vars)
-            except Exception, e:
+            except Exception as e:
                 return HttpResponse("ERR", status=500)
             else:
                 return HttpResponse("OK", status=200)
