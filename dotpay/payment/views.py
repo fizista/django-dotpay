@@ -1,5 +1,5 @@
 import logging
-import urlparse
+from urllib.parse import urlparse
 from django.views.decorators.csrf import csrf_exempt
 from dotpay.payment.models import DotResponse
 from django.http import HttpResponse
@@ -27,7 +27,7 @@ def receiver(request):
                 dotresponse = DotResponse.objects.get_or_create(control=vars.pop('control'),
                                                                 t_id=vars.pop('t_id'),
                                                                 defaults=vars)
-            except Exception, e:
+            except Exception as e:
                 return HttpResponse("ERR", status=500)
             else:
                 return HttpResponse("OK", status=200)
