@@ -7,5 +7,6 @@ setup(
     author_email='krzysiekpl@gmail.com',
     license='BSD',
     url='https://github.com/hoffmannkrzysztof/django-dotpay/',
-    packages=['dotpay', 'dotpay.sms', 'dotpay.payment'],
+    packages=['dotpay', 'dotpay.sms',
+              'dotpay.payment', 'dotpay.payment.migrations'],
 )
