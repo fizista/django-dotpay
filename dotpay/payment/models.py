@@ -35,7 +35,7 @@ class DotRequest(models.Model):
     
     def _gen_control(self):
         nonce = ''.join([str(self.kwota), str(time.time()), str(os.urandom(1024))])
-        self.control = hashlib.md5(nonce).hexdigest()
+        self.control = hashlib.md5(bytes(nonce,'utf8')).hexdigest()
 
 
 class DotResponse(models.Model):
