@@ -38,4 +38,4 @@ def generate_md5(control,t_id,amount,t_status, email):
     
     list = map(lambda o: str(o), list)
     
-    return hashlib.md5(":".join(list)).hexdigest()
+    return hashlib.md5(bytes(":".join(list),'utf8')).hexdigest()
