@@ -19,9 +19,13 @@ def receiver(request):
                     var = post.get(field.name, None)
                     if var:
                         if type(var) == list:
-                            var = var[0].decode("iso8859-2")
+                            var = var[0]
                         elif type(var) == str:
+                            var = var
+                        try:
                             var = var.decode("iso8859-2")
+                        except AttributeError:
+                            pass
                     vars[field.name] = var
             try:
                 dotresponse = DotResponse.objects.get_or_create(control=vars.pop('control'),
